@@ -11,7 +11,7 @@ mv junkcleaner /usr/bin/
 
 OR
 ```
-wget -q -O /usr/bin/ https://raw.githubusercontent.com/rix4uni/junkcleaner/refs/heads/main/junkcleaner
+wget -q -O /usr/bin/junkcleaner https://raw.githubusercontent.com/rix4uni/junkcleaner/refs/heads/main/junkcleaner && chmod +x /usr/bin/junkcleaner
 ```
 
 ## Usage
