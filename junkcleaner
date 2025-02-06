@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [[ $EUID -ne 0 ]]; then
+    echo "This script must be run as root" 
+    exit 1
+fi
+
+## Deleting Linux files
+# https://linuxhandbook.com/clear-pip-cache/
+pip cache purge
+
+# https://www.reddit.com/r/golang/comments/1iihmwc/my_go_build_cache_size_went_up_to_400_gb/
+go clean -cache -modcache
+
+find /tmp -mindepth 1 -delete
+find /var/tmp -mindepth 1 -delete
+
+apt autoremove -y
+apt clean
+
+## Deleting Windows files
+USERNAME=$(cmd.exe /c 'echo %USERNAME%')
+find /mnt/c/Users/$USERNAME/AppData/Local/Temp -mindepth 1 -delete
+find /mnt/c/Windows/Temp -mindepth 1 -delete
