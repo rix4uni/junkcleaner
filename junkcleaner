@@ -19,6 +19,6 @@ apt autoremove -y
 apt clean
 
 ## Deleting Windows files
-USERNAME=$(cmd.exe /c 'echo %USERNAME%')
+USERNAME=$(powershell.exe '$env:USERNAME' | tr -d '\r')
 find /mnt/c/Users/$USERNAME/AppData/Local/Temp -mindepth 1 -delete
 find /mnt/c/Windows/Temp -mindepth 1 -delete
