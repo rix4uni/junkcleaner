@@ -22,3 +22,4 @@ apt clean
 USERNAME=$(powershell.exe '$env:USERNAME' | tr -d '\r')
 find /mnt/c/Users/$USERNAME/AppData/Local/Temp -mindepth 1 -delete
 find /mnt/c/Windows/Temp -mindepth 1 -delete
+find /mnt/c/Windows/Prefetch -mindepth 1 -delete
